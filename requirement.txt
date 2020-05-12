@@ -1,0 +1,2 @@
+#spidev
+spidev==3.4

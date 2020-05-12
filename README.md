@@ -11,6 +11,11 @@ sudo apt-get update
 sudo apt-get install python3-tk
 ```
 
+```bash
+pip3 install -r requirement.txt
+```
+
+
 ## Usage
 
 ```bash
