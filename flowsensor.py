@@ -18,17 +18,10 @@ class MainApplication(tk.Tk):
     #Create popupmenu
     self.menu_bar = tk.Menu(self)
     self.popup_menu = tk.Menu(self.menu_bar,tearoff=0)
-    self.popup_menu.add_command(label="Home",command=self.donothing)
-    self.popup_menu.add_command(label="Settings",command=self.donothing)
-
     self.popup_menu.add_separator()
     
     self.config(menu=self.menu_bar)
 
-  def donothing():
-    filewin = tk.TopLevel(self)
-    button = tk.Button(filewin,text="Do no thing")
-    button.pack()
 
 
 
