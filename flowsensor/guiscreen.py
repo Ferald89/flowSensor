@@ -10,7 +10,18 @@ class MainApplication(tk.Tk):
 
     super().__init__()
 
-    self.FONT_NUMBER = ("Garamond", 44,'bold')
+    self.FONT_NUMBER = (
+      "Helvetica",
+       33,
+       'bold'
+       )
+    self.COLORS={
+      'INK':'#062F4F',
+      'EMBERS':'#B82601',
+      'BLACK' :'#000000',
+      'POSY' :'#813772'
+
+    }
 
     self.get_screen_properties()
     self.get_screen_frame()
@@ -29,18 +40,49 @@ class MainApplication(tk.Tk):
   def get_screen_label(self):
 
 
-    self.label1 = tk.Label(self.frame1,text="Hello wordl",font=("Garamond", 44,'bold'),justify='center',)
-    self.label1.pack(fill='both',side='left')
+    self.label1 = tk.Label(
+      self.frame1,
+      font=self.FONT_NUMBER,
+      justify='center',
+      bg=self.COLORS['INK'],
+      borderwidth=2, 
+      relief="groove"
+      )
     self.label1['text']="10.0 Mpa"
-
-    self.label2 = tk.Label(self.frame1,text="Hello wordl",font=("Garamond", 44,'bold'),justify='center',)
-    self.label2.pack(fill='both',side='left')
+    self.label1.pack(fill='both',side='left')
+  
+    self.label2 = tk.Label(
+      self.frame1,
+      font=self.FONT_NUMBER,
+      justify='center',
+      bg=self.COLORS['INK'],
+            borderwidth=2, 
+      relief="groove"
+      )
     self.label2['text']="10.0 Mpa"
-
-    self.label2 = tk.Label(self.frame1,text="Hello wordl",font=self.FONT_NUMBER,justify='center',)
     self.label2.pack(fill='both',side='left')
-    self.label2['text']="10.0 Mpa"
 
+    self.label3 = tk.Label(
+      self.frame1,
+      font=self.FONT_NUMBER,
+      justify='center',
+      bg=self.COLORS['INK'],
+            borderwidth=2, 
+      relief="groove"
+      )
+    self.label3['text']="10.0 Mpa"
+    self.label3.pack(fill='both',side='left')
+
+    self.label4 = tk.Label(
+      self.frame1,
+      font=self.FONT_NUMBER,
+      justify='center',
+      bg=self.COLORS['INK'],
+            borderwidth=2, 
+      relief="groove"
+      )
+    self.label4['text']="10.0 Mpa"
+    self.label4.pack(fill='both',side='left')
 
   def get_screen_frame(self):
     """Get screen frame"""
@@ -50,9 +92,9 @@ class MainApplication(tk.Tk):
     self.frame.pack_propagate(0)
     self.frame.pack(fill=tk.BOTH, expand=1)
 
-    self.frame1 = tk.Frame(master=self.frame,width=900,height=600,bg='white')
+    self.frame1 = tk.Frame(master=self.frame,width=900,height=600,bg='gray')
     self.frame1.pack_propagate(0)
     self.frame1.pack(fill=tk.BOTH, expand=1)
-    self.frame1.pack(padx=50,pady=20)
+    self.frame1.pack(padx=20,pady=20)
 
   
