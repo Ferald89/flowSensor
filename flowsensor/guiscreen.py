@@ -32,7 +32,7 @@ class MainApplication(tk.Tk):
   def get_screen_properties(self):
     """Get screen properties of the screen. """
 
-    self.title("Deica || Flow Sensor")
+    self.title("Pressure Sensors || DEICA Automatismos S.A. de C.V.")
     self.geometry("800x480")
     self.resizable(0,0)
 
