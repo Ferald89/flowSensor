@@ -36,7 +36,7 @@ class FlowSensor():
     return voltage
   
   def convertPressure(self, voltage, decimalPlaces = 4):
-    pressure = ((voltage * 1.2) / 3.3) - 0.103
+    pressure = ((voltage * 1.2) / 3.3) #- 0.103
     pressure = round(pressure, decimalPlaces)
     if pressure < 0:
         pressure = 0
