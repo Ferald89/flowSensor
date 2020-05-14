@@ -4,13 +4,6 @@ import time
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 
-# Software SPI configuration:
-#CLK  = 23
-#MISO = 21
-#MOSI = 19
-#CS   = 24
-#mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
-
 # Hardware SPI configuration:
 SPI_PORT   = 1
 SPI_DEVICE = 0
@@ -23,7 +16,7 @@ def convertVoltage(bitValue, decimalPlaces = 3):
     return voltage
 
 def convertPressure(voltage, decimalPlaces = 4):
-    pressure = ((voltage * 1.2) / 3.3) - 0.103
+    pressure = ((voltage * 1.2) / 3.3) #- 0.103
     pressure = round(pressure, decimalPlaces)
     return pressure
 
@@ -67,10 +60,10 @@ while True:
         pressure4 = pressure4
         
     print('|Sensor| Bits | Voltaje |  Presion  |')   
-    print('|  1   |  {:^2}  | {:^5} V |{:^7} MPa|'.format(sensor1Data, sensor1Voltage, pressure1))
-    print('|  2   |  {:^2}  | {:^5} V |{:^7} MPa|'.format(sensor2Data, sensor2Voltage, pressure2))
-    print('|  3   |  {:^2}  | {:^5} V |{:^7} MPa|'.format(sensor3Data, sensor3Voltage, pressure3))
-    print('|  4   |  {:^2}  | {:^5} V |{:^7} MPa|'.format(sensor4Data, sensor4Voltage, pressure4))
+    print('|  1   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor1Data, sensor1Voltage, pressure1))
+    print('|  2   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor2Data, sensor2Voltage, pressure2))
+    print('|  3   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor3Data, sensor3Voltage, pressure3))
+    print('|  4   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor4Data, sensor4Voltage, pressure4))
     print('-' * 36)
     
-    time.sleep(1)
+    time.sleep(0.5)
