@@ -31,7 +31,8 @@ class MainApplication(tk.Tk):
 
   def get_screen_properties(self):
     """Get screen properties of the screen. """
-
+    
+    self.iconbitmap('../statics/pressure_4667.ico')
     self.title("Pressure Sensors || DEICA Automatismos S.A. de C.V.")
     self.geometry("800x480")
     self.resizable(0,0)

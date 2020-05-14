@@ -37,10 +37,10 @@ def main():
       root.update_idletasks()
       root.update()
 
-      print(sensorFlow1.pressure)
-      print(sensorFlow2.pressure)
-      print(sensorFlow3.pressure)
-      print(sensorFlow4.pressure)
+      # print(sensorFlow1.pressure)
+      # print(sensorFlow2.pressure)
+      # print(sensorFlow3.pressure)
+      # print(sensorFlow4.pressure)
       time.sleep(0.5)
 
 if __name__ == "__main__":
