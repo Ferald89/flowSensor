@@ -2,5 +2,7 @@
 /.env
 
 # Cache
+/__pycache_
 
-/__pycache__
+# MAC
+.DS_Store
