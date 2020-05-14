@@ -1,2 +1,4 @@
-#spidev
-spidev==3.4
+# Adafruit
+
+Adafruit-GPIO==1.0.3
+Adafruit-MCP3008==1.0.2
