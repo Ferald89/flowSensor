@@ -48,7 +48,7 @@ class MainApplication(tk.Tk):
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
       borderwidth=1, 
       relief="groove",
       height = self.SIZE_DATA['height'],
@@ -61,9 +61,10 @@ class MainApplication(tk.Tk):
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
+      fg=self.COLORS['POSY'],
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
@@ -74,26 +75,26 @@ class MainApplication(tk.Tk):
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
-    self.label3['text']="10.0 Mpa"
+    self.label3['text']="0.444 Mpa"
     self.label3.grid(column=2,row=1)
 
     self.label4 = tk.Label(
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
-    self.label4['text']="10.0 Mpa"
+    self.label4['text']="0.444 Mpa"
     self.label4.grid(column=2,row=2)
 
   def get_screen_frame(self):
