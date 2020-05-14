@@ -16,7 +16,7 @@ def main():
   #Inizialisamos el tk
   root = MainApplication()
   # root.label1['text']="15.0 Mpa"
-  root.mainloop()
+  #root.mainloop()
 
   while True:
       sensorFlow1.updateValue()
