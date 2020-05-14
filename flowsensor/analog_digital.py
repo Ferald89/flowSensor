@@ -3,7 +3,7 @@ import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 
 #Import GPIO library to manage GPIO from python
-import RPi.GPIO
+import RPi.GPIO as gpio
 
 #Utilities
 import time
@@ -88,7 +88,7 @@ while True:
     print('|  4   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor4Data, sensor4Voltage, pressure4))
     print('-' * 36)
     
-    if DOUT_S1 = True:
+    if DOUT_S1 == True:
         print('PIN 11 ON')
     else:
         print('PIN 11 OFF')
