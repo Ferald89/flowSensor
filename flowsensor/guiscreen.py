@@ -20,7 +20,6 @@ class MainApplication(tk.Tk):
       'EMBERS':'#B82601',
       'BLACK' :'#000000',
       'POSY' :'#813772'
-
     }
     self.SIZE_DATA ={
       'height':5,
@@ -43,7 +42,7 @@ class MainApplication(tk.Tk):
 
 
   def get_screen_label(self):
-
+    """Get srcreen_label"""
 
     self.label1 = tk.Label(
       self.frame1,
