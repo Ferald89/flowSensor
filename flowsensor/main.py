@@ -33,8 +33,10 @@ def main():
       root.label3['text']="{:^} MPa".format(sensorFlow3.pressure)
       root.label4['text']="{:^} MPa".format(sensorFlow4.pressure)
 
-      root.mainloop()
-      
+      # root.mainloop()
+      root.update_idletasks()
+      root.update()
+
       print(sensorFlow1.pressure)
       print(sensorFlow2.pressure)
       print(sensorFlow3.pressure)
