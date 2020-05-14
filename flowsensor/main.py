@@ -18,6 +18,7 @@ def main():
 
   #Inicializamos el tk
   root = MainApplication()
+  # root.iconbitmap('c:/home/mrrobot/Documentos/deica/fp-Sensor/statics/pressure_4667.ico')
 
   
 
@@ -33,7 +34,7 @@ def main():
       root.label3['text']="{:^} MPa".format(sensorFlow3.pressure)
       root.label4['text']="{:^} MPa".format(sensorFlow4.pressure)
 
-      # root.mainloop()
+      root.mainloop()
       root.update_idletasks()
       root.update()
 
