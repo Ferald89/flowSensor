@@ -7,7 +7,6 @@ from flowsensor import FlowSensor
 def main():
   """Es el control de la pantalla y la configuración y arranque de la misma"""
   #Instanciamos FlowSensor
-
   sensorFlow1 = FlowSensor(0)
   sensorFlow2 = FlowSensor(1)
   sensorFlow3 = FlowSensor(2)
