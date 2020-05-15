@@ -19,7 +19,9 @@ class MainApplication(tk.Tk):
       'INK':'#062F4F',
       'EMBERS':'#B82601',
       'BLACK' :'#000000',
-      'POSY' :'#813772'
+      'POSY' :'#813772',
+      'GREEN':'green',
+      'RED':'red'
     }
     self.SIZE_DATA ={
       'height':5,
@@ -62,6 +64,7 @@ class MainApplication(tk.Tk):
       bg=self.COLORS['BLACK'],
       borderwidth=1, 
       relief="groove",
+      fg=self.COLORS['RED'],
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
@@ -75,7 +78,7 @@ class MainApplication(tk.Tk):
       bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
-      fg=self.COLORS['POSY'],
+      fg=self.COLORS['GREEN'],
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
@@ -89,6 +92,7 @@ class MainApplication(tk.Tk):
       bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
+      fg=self.COLORS['GREEN'],
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
@@ -102,6 +106,7 @@ class MainApplication(tk.Tk):
       bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
+      fg=self.COLORS['GREEN'],
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
