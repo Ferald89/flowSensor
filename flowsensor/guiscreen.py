@@ -26,8 +26,8 @@ class MainApplication(tk.Tk):
       'width' :17
     }
 
-    self.get_screen_properties()
     self.get_screen_frame()
+    self.get_screen_properties()
     self.get_screen_label()
     
 
@@ -39,8 +39,19 @@ class MainApplication(tk.Tk):
     self.title("Pressure Sensors || DEICA Automatismos S.A. de C.V.")
     self.geometry("800x480")
     self.resizable(0,0)
+    self.popup_menu = tk.Menu(self.frame1,tearoff=0)
+    self.popup_menu.add_command(label="Home")
+    self.popup_menu.add_command(label="Settings")
+    self.popup_menu.add_command(label="About")
+    self.bind("<Button-3>",self.do_popup) 
 
-
+  def do_popup(self,event): 
+     try: 
+         self.popup_menu.tk_popup(event.x_root, 
+                                  event.y_root) 
+     finally: 
+         self.popup_menu.grab_release()
+    
   def get_screen_label(self):
     """Get srcreen_label"""
 
@@ -48,7 +59,7 @@ class MainApplication(tk.Tk):
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
       borderwidth=1, 
       relief="groove",
       height = self.SIZE_DATA['height'],
@@ -61,9 +72,10 @@ class MainApplication(tk.Tk):
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
+      fg=self.COLORS['POSY'],
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
@@ -74,26 +86,26 @@ class MainApplication(tk.Tk):
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
-    self.label3['text']="10.0 Mpa"
+    self.label3['text']="0.444 Mpa"
     self.label3.grid(column=2,row=1)
 
     self.label4 = tk.Label(
       self.frame1,
       font=self.FONT_NUMBER,
       justify='center',
-      bg=self.COLORS['INK'],
+      bg=self.COLORS['BLACK'],
             borderwidth=1, 
       relief="groove",
       height = self.SIZE_DATA['height'],
       width  = self.SIZE_DATA['width'] 
       )
-    self.label4['text']="10.0 Mpa"
+    self.label4['text']="0.444 Mpa"
     self.label4.grid(column=2,row=2)
 
   def get_screen_frame(self):
