@@ -1,8 +1,8 @@
 # Virtual Machine
-/.env
+.env
 
 # Cache
-/__pycache__
+__pycache__
 
 # MAC
 .DS_Store
