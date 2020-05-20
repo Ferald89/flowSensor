@@ -4,42 +4,42 @@
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 
-# Utilities
-import time
 
 class FlowSensor():
-  def __init__(self,chanel):
+    def __init__(self, chanel):
 
-    self.CHANEL      = chanel
+        self.CHANEL = chanel
+        self.SPI_PORT = 1
+        self.SPI_DEVICE = 0
+        self.mcp = Adafruit_MCP3008.MCP3008(
+                              spi=SPI.SpiDev(
+                                  self.SPI_PORT,
+                                  self.SPI_DEVICE
+                              ))
 
-    self.SPI_PORT    = 1
-    self.SPI_DEVICE  = 0
+        self.RAW = self.mcp.read_adc(self.CHANEL)
 
-    self.mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(self.SPI_PORT, self.SPI_DEVICE))
+        self.voltaje = self.convertVoltage(self.RAW)
 
-    self.RAW =self.mcp.read_adc(self.CHANEL)
+        self.pressure = self.convertPressure(self.voltaje)
 
-    self.voltaje = self.convertVoltage(self.RAW)
+    def updateValue(self):
+        self.RAW = self.mcp.read_adc(self.CHANEL)
 
-    self.pressure = self.convertPressure(self.voltaje)
+        self.voltaje = self.convertVoltage(self.RAW)
 
-  def updateValue(self):
-    self.RAW =self.mcp.read_adc(self.CHANEL)
+        self.pressure = self.convertPressure(self.voltaje)
 
-    self.voltaje = self.convertVoltage(self.RAW)
+    def convertVoltage(self, bitValue, decimalPlaces=3):
+        voltage = ((bitValue * 3.3) / float(1023))
+        voltage = round(voltage, decimalPlaces)
+        return voltage
 
-    self.pressure = self.convertPressure(self.voltaje)
-
-  def convertVoltage(self, bitValue, decimalPlaces = 3):
-    voltage = ((bitValue * 3.3) / float(1023))
-    voltage = round(voltage, decimalPlaces)
-    return voltage
-  
-  def convertPressure(self, voltage, decimalPlaces = 4):
-    pressure = ((voltage * 1.2) / 3.3) #- 0.103
-    pressure = round(pressure, decimalPlaces)
-    if pressure < 0:
-        pressure = 0
-    else:
-        pressure = pressure
-    return pressure
+    def convertPressure(self, voltage, decimalPlaces=4):
+        pressure = ((voltage * 1.2) / 3.3)
+        pressure = round(pressure, decimalPlaces)
+        if pressure < 0:
+            pressure = 0
+        else:
+            pressure = pressure
+        return pressure
