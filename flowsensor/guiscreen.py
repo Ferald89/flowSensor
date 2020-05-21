@@ -3,6 +3,9 @@
 # Tkinter
 import tkinter as tk
 
+# Local
+from settings_screen import SettingScreen
+
 
 class MainApplication(tk.Tk):
 
@@ -40,10 +43,16 @@ class MainApplication(tk.Tk):
         self.geometry("800x480")
         self.resizable(0, 0)
         self.popup_menu = tk.Menu(self.frame1, tearoff=0)
-        self.popup_menu.add_command(label="Home")
-        self.popup_menu.add_command(label="Settings")
+        self.popup_menu.add_command(
+                                label="Settings",
+                                command=self.menu_setting
+                            )
         self.popup_menu.add_command(label="About")
         self.bind("<Button-3>", self.do_popup)
+
+    def menu_setting(self):
+        windows = tk.Toplevel()
+        windows.geometry("800x480")
 
     def do_popup(self, event):
         try:
