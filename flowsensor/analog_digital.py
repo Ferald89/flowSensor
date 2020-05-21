@@ -24,25 +24,31 @@ GPIO.setup(DOUT_S3, GPIO.OUT)
 GPIO.setup(DOUT_S4, GPIO.OUT)
 
 # Hardware SPI configuration
-SPI_PORT   = 1
+SPI_PORT = 1
 SPI_DEVICE = 0
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
-# Funtions to convert the bit value to voltage and then convert the voltage t pressure 
-def convertVoltage(bitValue, decimalPlaces = 3):
+"""Funtions to convert the bit value to voltage
+and then convert the voltage t pressure"""
+
+
+def convertVoltage(bitValue, decimalPlaces=3):
     voltage = ((bitValue * 3.3) / float(1023))
     voltage = round(voltage, decimalPlaces)
     return voltage
 
-def convertPressure(voltage, decimalPlaces = 4):
-    pressure = ((voltage * 1.2) / 3.3) #- 0.103
+
+def convertPressure(voltage, decimalPlaces=4):
+
+    pressure = ((voltage * 1.2) / 3.3)
     pressure = round(pressure, decimalPlaces)
     return pressure
 
-#Main
 
+# Main
 print('Reading values, press Ctrl-C to quit...')
 print('')
+
 
 try:
     while True:
@@ -81,7 +87,7 @@ try:
         else:
             pressure4 = pressure4
 
-        #Pressure limit ranges to turn on/off the outputs
+        # Pressure limit ranges to turn on/off the outputs
 
         if 0.5 < pressure1 < 1.0:
             GPIO.output(DOUT_S1, True)
@@ -103,7 +109,8 @@ try:
         else:
             GPIO.output(DOUT_S4, False)
 
-       #Use input to check the state of outputs. Returns 1 if output high
+        """Use input to check the state of outputs
+        Returns 1 if output high"""
 
         if GPIO.input(DOUT_S1) == 1:
             DOUT1_STATUS = 'ON'
@@ -126,12 +133,29 @@ try:
             DOUT4_STATUS = 'OFF'
 
         print('|Sensor| Bits | Voltaje |  Presion  | OUTPUT PIN | STATUS |')
-        print('|  1   | {:^4} | {:^5} V |{:^7} MPa| {:^2}     |{:^4}|'.format(sensor1Data, sensor1Voltage, pressure1, DOUT_S1, DOUT1_STATUS))
-        print('|  2   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor2Data, sensor2Voltage, pressure2))
-        print('|  3   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor3Data, sensor3Voltage, pressure3))
-        print('|  4   | {:^4} | {:^5} V |{:^7} MPa|'.format(sensor4Data, sensor4Voltage, pressure4))
+        print('|  1   | {:^4} | {:^5} V |{:^7} MPa| {:^2}     |{:^4}|'.format(
+                                                        sensor1Data,
+                                                        sensor1Voltage,
+                                                        pressure1,
+                                                        DOUT_S1,
+                                                        DOUT1_STATUS))
+        print('|  2   | {:^4} | {:^5} V |{:^7} MPa|'.format(
+                                                        sensor2Data,
+                                                        sensor2Voltage,
+                                                        pressure2
+                                                    ))
+        print('|  3   | {:^4} | {:^5} V |{:^7} MPa|'.format(
+                                                        sensor3Data,
+                                                        sensor3Voltage,
+                                                        pressure3
+                                                    ))
+        print('|  4   | {:^4} | {:^5} V |{:^7} MPa|'.format(
+                                                        sensor4Data,
+                                                        sensor4Voltage,
+                                                        pressure4
+                                                    ))
         print('-' * 36)
-
         time.sleep(0.5)
 except:
+    print("Something happend bad")
     GPIO.cleanup()
