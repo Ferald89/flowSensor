@@ -3,6 +3,8 @@
 # Local
 from guiscreen import MainApplication
 # from flowsensor import FlowSensor
+from action import Action
+from setting import Setting
 
 # Utilities
 import time
@@ -17,6 +19,8 @@ def main():
     # sensorFlow2 = FlowSensor(1)
     # sensorFlow3 = FlowSensor(2)
     # sensorFlow4 = FlowSensor(3)
+    test = 15.5
+    setting = Setting()
 
     # Inicializamos el tk
     root = MainApplication()
@@ -31,6 +35,10 @@ def main():
         # root.label2['text'] = "{:^} MPa".format(sensorFlow2.pressure)
         # root.label3['text'] = "{:^} MPa".format(sensorFlow3.pressure)
         # root.label4['text'] = "{:^} MPa".format(sensorFlow4.pressure)
+
+        action1 = Action(test, 1, 1)
+        root.label1['fg'] = action1.judge()
+        root.label1['text'] = "{:^} MPa".format(test)
 
         root.update_idletasks()
         root.update()
