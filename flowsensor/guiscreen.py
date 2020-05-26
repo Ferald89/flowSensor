@@ -33,6 +33,8 @@ class MainApplication(tk.Tk):
         }
 
         self.get_screen_frame()
+        self.setting_frame = SettingScreen(self.frame)
+        self.hide_frame_initial()
         self.get_screen_properties()
         self.get_screen_label()
 
@@ -44,15 +46,33 @@ class MainApplication(tk.Tk):
         self.resizable(0, 0)
         self.popup_menu = tk.Menu(self.frame1, tearoff=0)
         self.popup_menu.add_command(
+                                label="Home",
+                                command=self.show_home
+                            )
+        self.popup_menu.add_command(
                                 label="Settings",
                                 command=self.menu_setting
                             )
-        self.popup_menu.add_command(label="About")
+        self.popup_menu.add_command(
+                                label="About",
+                                command=self.hide_frames
+                            )
         self.bind("<Button-3>", self.do_popup)
 
     def menu_setting(self):
-        windows = tk.Toplevel()
-        windows.geometry("800x480")
+        self.hide_frames()
+        self.setting_frame.show_frame()
+
+    def hide_frames(self):
+        self.frame1.grid_forget()
+        self.setting_frame.hide_frame()
+
+    def hide_frame_initial(self):
+        self.setting_frame.hide_frame()
+
+    def show_home(self):
+        self.hide_frames()
+        self.frame1.grid(column=0, row=0, columnspan=2, rowspan=2)
 
     def do_popup(self, event):
         try:

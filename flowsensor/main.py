@@ -34,7 +34,7 @@ def main():
 
         root.update_idletasks()
         root.update()
-        time.sleep(0.5)
+        time.sleep(0.1)
 
 
 if __name__ == "__main__":
