@@ -13,3 +13,8 @@ class Action:
         if (self.value > self.value_Min) & (self.value < self.value_Max):
             return 'green'
         return 'red'
+
+    def judge_boolean(self):
+        if (self.value > self.value_Min) & (self.value < self.value_Max):
+            return True
+        return False

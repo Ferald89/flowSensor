@@ -4,8 +4,12 @@
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 
+# GPIO
+import RPi.GPIO as GPIO
+
 
 class FlowSensor():
+
     def __init__(self, chanel):
 
         self.CHANEL = chanel
@@ -43,3 +47,29 @@ class FlowSensor():
         else:
             pressure = pressure
         return pressure
+
+
+class GpioOut:
+
+    def __init__(self, sensor):
+        self.sensor = sensor
+        GPIO.setmode(GPIO.BOARD)
+
+        # GPIO output pins definition
+
+        self.DOUT_S1 = 11
+        DOUT_S2 = 13
+        DOUT_S3 = 15
+        DOUT_S4 = 16
+
+        # GPIO I/O setup configuration
+        GPIO.setup(self.DOUT_S1, GPIO.OUT)
+        GPIO.setup(DOUT_S2, GPIO.OUT)
+        GPIO.setup(DOUT_S3, GPIO.OUT)
+        GPIO.setup(DOUT_S4, GPIO.OUT)
+
+    def turnOff(self):
+        GPIO.output(self.DOUT_S1, False)
+
+    def turnOn(self):
+        GPIO.output(self.DOUT_S1, True)

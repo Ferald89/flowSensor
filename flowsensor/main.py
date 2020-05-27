@@ -2,7 +2,7 @@
 
 # Local
 from guiscreen import MainApplication
-from flowsensor import FlowSensor
+from flowsensor import FlowSensor, GpioOut
 from action import Action
 from setting import Setting, SensorSetting
 
@@ -40,6 +40,9 @@ def main():
                         float(setting.Min)
                     ))
 
+    # GpioOut
+    out = GpioOut(1)
+
     while True:
 
         # Update Setting
@@ -64,12 +67,18 @@ def main():
         actions[2].value = sensorFlow3.pressure
         actions[3].value = sensorFlow4.pressure
 
-        # actions[0].value = test
+
+
+        # Actions
 
         root.label1['fg'] = actions[0].judge()
         root.label2['fg'] = actions[1].judge()
         root.label3['fg'] = actions[2].judge()
         root.label4['fg'] = actions[3].judge()
+
+        if actions[0].judge_boolean():
+            out.turnOn()
+        out.turnOff
 
         # root.label1['text'] = "{:^} MPa".format(test)
         root.update_idletasks()
