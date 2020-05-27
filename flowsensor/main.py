@@ -23,7 +23,6 @@ def main():
     setting = Setting()
     setting.read()
     # sensors = []
-    actions = []
 
     # sensors.append(SensorSetting(1, 50.0, 10.0))
     # sensors.append(SensorSetting(2, 80.0, 50.0))
@@ -45,15 +44,14 @@ def main():
         root.label3['text'] = "{:^} MPa".format(sensorFlow3.pressure)
         root.label4['text'] = "{:^} MPa".format(sensorFlow4.pressure)
 
-        actions[0] = (Action(
+        actions = (Action(
                         sensorFlow1.pressure,
                         float(settings[0].Max),
                         float(settings[0].Min)
                     ))
 
-        root.label1['fg'] = actions[0].judge()
+        root.label1['fg'] = actions.judge()
         root.label1['text'] = "{:^} MPa".format(test)
-
         root.update_idletasks()
         root.update()
         time.sleep(0.1)
