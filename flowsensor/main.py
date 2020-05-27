@@ -48,6 +48,7 @@ def main():
 
     # GpioOut
     out = GpioOut(DOUT_S1)
+    out2= GpioOut(DOUT_S2)
 
     while True:
 
@@ -86,6 +87,11 @@ def main():
             out.turnOn()
         else:
             out.turnOff()
+
+        if actions[1].judge_boolean():
+            out2.turnOn()
+        else:
+            out2.turnOff()
 
         # root.label1['text'] = "{:^} MPa".format(test)
         root.update_idletasks()
