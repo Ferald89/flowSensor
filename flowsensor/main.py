@@ -24,6 +24,12 @@ def main():
     actions = []
     # sensors = []
 
+    # Pines Salida
+    DOUT_S1 = 11
+    DOUT_S2 = 13
+    DOUT_S3 = 15
+    DOUT_S4 = 16
+
     # sensors.append(SensorSetting(1, 50.0, 10.0))
     # sensors.append(SensorSetting(2, 80.0, 50.0))
     # sensors.append(SensorSetting(3, 90.0, 10.0))
@@ -41,7 +47,7 @@ def main():
                     ))
 
     # GpioOut
-    out = GpioOut(1)
+    out = GpioOut(DOUT_S1)
 
     while True:
 

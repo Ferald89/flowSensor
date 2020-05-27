@@ -51,25 +51,17 @@ class FlowSensor():
 
 class GpioOut:
 
-    def __init__(self, sensor):
-        self.sensor = sensor
+    def __init__(self, pin):
+        self.pin = pin
         GPIO.setmode(GPIO.BOARD)
 
         # GPIO output pins definition
 
-        self.DOUT_S1 = 11
-        DOUT_S2 = 13
-        DOUT_S3 = 15
-        DOUT_S4 = 16
-
         # GPIO I/O setup configuration
-        GPIO.setup(self.DOUT_S1, GPIO.OUT)
-        GPIO.setup(DOUT_S2, GPIO.OUT)
-        GPIO.setup(DOUT_S3, GPIO.OUT)
-        GPIO.setup(DOUT_S4, GPIO.OUT)
+        GPIO.setup(self.pin, GPIO.OUT)
 
     def turnOff(self):
-        GPIO.output(self.DOUT_S1, False)
+        GPIO.output(self.pin, False)
 
     def turnOn(self):
-        GPIO.output(self.DOUT_S1, True)
+        GPIO.output(self.pin, True)
