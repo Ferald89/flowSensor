@@ -1,5 +1,8 @@
 """Screen Settings Class. """
 
+# Local
+from setting import Setting
+
 # Tkinter
 import tkinter as tk
 
@@ -8,11 +11,26 @@ class SettingScreen:
     """setting frame. """
 
     def __init__(self, windows):
+
+        self.settings = Setting()
+
         self.set_frame(windows)
         self.set_fonts()
         self.set_label()
         self.set_entry()
+        self.set_entry_default()
         self.set_buttom()
+
+    def set_entry_default(self):
+        settings = self.settings.read()
+        self.entry1.insert(tk.END, settings[0].Max)
+        self.entry2.insert(tk.END, settings[0].Min)
+        self.entry3.insert(tk.END, settings[1].Max)
+        self.entry4.insert(tk.END, settings[1].Min)
+        self.entry5.insert(tk.END, settings[2].Max)
+        self.entry6.insert(tk.END, settings[2].Min)
+        self.entry7.insert(tk.END, settings[3].Max)
+        self.entry8.insert(tk.END, settings[3].Min)
 
     def set_fonts(self):
         self.fonts_title2 = {
@@ -293,6 +311,17 @@ class SettingScreen:
         self.entry8 = tk.Entry(self.frame)
         self.entry8.grid(column=4, row=8)
 
+    def buttom_save(self):
+        self.settings.settings[0].Max = self.entry1.get()
+        self.settings.settings[0].Min = self.entry2.get()
+        self.settings.settings[1].Max = self.entry3.get()
+        self.settings.settings[1].Min = self.entry4.get()
+        self.settings.settings[2].Max = self.entry5.get()
+        self.settings.settings[2].Min = self.entry6.get()
+        self.settings.settings[3].Max = self.entry7.get()
+        self.settings.settings[3].Min = self.entry8.get()
+        self.settings.save()
+
     def set_buttom(self):
         self.save = tk.Button(
                         self.fonts_buttom1['master'],
@@ -300,7 +329,8 @@ class SettingScreen:
                         fg=self.fonts_buttom1['fg'],
                         font=self.fonts_buttom1['font'],
                         width=self.fonts_buttom1['width'],
-                        height=self.fonts_buttom1['height']
+                        height=self.fonts_buttom1['height'],
+                        command=self.buttom_save
                     )
 
         self.save.grid(
