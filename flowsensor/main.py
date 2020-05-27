@@ -51,7 +51,7 @@ def main():
                     ))
 
         root.label1['fg'] = actions.judge()
-        root.label1['text'] = "{:^} MPa".format(test)
+        # root.label1['text'] = "{:^} MPa".format(test)
         root.update_idletasks()
         root.update()
         time.sleep(0.1)
