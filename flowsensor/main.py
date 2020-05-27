@@ -35,7 +35,8 @@ def main():
     root = MainApplication()
 
     for setting in settings:
-        actions.append(Action(0.0,
+        actions.append(Action(
+                        0.0,
                         float(setting.Max),
                         float(setting.Min)
                     ))
