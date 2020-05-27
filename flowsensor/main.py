@@ -78,7 +78,8 @@ def main():
 
         if actions[0].judge_boolean():
             out.turnOn()
-        out.turnOff
+        else:
+            out.turnOff()
 
         # root.label1['text'] = "{:^} MPa".format(test)
         root.update_idletasks()
