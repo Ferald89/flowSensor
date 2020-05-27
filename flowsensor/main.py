@@ -39,10 +39,10 @@ def main():
         sensorFlow3.updateValue()
         sensorFlow4.updateValue()
 
-        root.label1['text'] = "{:^} MPa".format(sensorFlow1.pressure)
-        root.label2['text'] = "{:^} MPa".format(sensorFlow2.pressure)
-        root.label3['text'] = "{:^} MPa".format(sensorFlow3.pressure)
-        root.label4['text'] = "{:^} MPa".format(sensorFlow4.pressure)
+        root.label1['text'] = "FP 1 \n {:.2f} MPa".format(sensorFlow1.pressure)
+        root.label2['text'] = "{:.2f} MPa".format(sensorFlow2.pressure)
+        root.label3['text'] = "{:.2f} MPa".format(sensorFlow3.pressure)
+        root.label4['text'] = "{:.2f} MPa".format(sensorFlow4.pressure)
 
         actions = (Action(
                         sensorFlow1.pressure,
