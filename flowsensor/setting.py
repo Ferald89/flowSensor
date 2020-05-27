@@ -40,7 +40,7 @@ class Setting:
 
     def default_settings(self):
         self.settings.clear()
-        for s in range(3):
+        for s in range(4):
             sensor = SensorSetting(s+1, 999.9, 0)
             self.settings.append(sensor)
             print(s)
