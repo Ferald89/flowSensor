@@ -22,6 +22,7 @@ def main():
     test = 0.80
     sett = Setting()
     actions = []
+    outs = []
     # sensors = []
 
     # Pines Salida
@@ -47,8 +48,10 @@ def main():
                     ))
 
     # GpioOut
-    out = GpioOut(DOUT_S1)
-    out2= GpioOut(DOUT_S2)
+    outs.append(GpioOut(DOUT_S1))
+    outs.append(GpioOut(DOUT_S2))
+    outs.append(GpioOut(DOUT_S3))
+    outs.append(GpioOut(DOUT_S4))
 
     while True:
 
@@ -83,15 +86,11 @@ def main():
         root.label3['fg'] = actions[2].judge()
         root.label4['fg'] = actions[3].judge()
 
-        if actions[0].judge_boolean():
-            out.turnOn()
-        else:
-            out.turnOff()
-
-        if actions[1].judge_boolean():
-            out2.turnOn()
-        else:
-            out2.turnOff()
+        for idx, out in enumerate(outs):
+            if actions[idx].judge_boolean():
+                out.turnOn()
+            else:
+                out.turnOff()
 
         # root.label1['text'] = "{:^} MPa".format(test)
         root.update_idletasks()
