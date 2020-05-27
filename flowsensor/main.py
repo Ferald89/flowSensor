@@ -4,7 +4,7 @@
 from guiscreen import MainApplication
 from flowsensor import FlowSensor, GpioOut
 from action import Action
-from setting import Setting, SensorSetting
+from setting import Setting
 
 # Utilities
 import time
@@ -19,22 +19,18 @@ def main():
     sensorFlow2 = FlowSensor(1)
     sensorFlow3 = FlowSensor(2)
     sensorFlow4 = FlowSensor(3)
-    test = 0.80
+
     sett = Setting()
     actions = []
     outs = []
-    # sensors = []
 
     # Pines Salida
+
     DOUT_S1 = 11
     DOUT_S2 = 13
     DOUT_S3 = 15
     DOUT_S4 = 16
 
-    # sensors.append(SensorSetting(1, 50.0, 10.0))
-    # sensors.append(SensorSetting(2, 80.0, 50.0))
-    # sensors.append(SensorSetting(3, 90.0, 10.0))
-    # setting.update_settings(sensors)
     settings = sett.read()
 
     # Inicializamos el tk
@@ -77,8 +73,6 @@ def main():
         actions[2].value = sensorFlow3.pressure
         actions[3].value = sensorFlow4.pressure
 
-
-
         # Actions
 
         root.label1['fg'] = actions[0].judge()
@@ -92,7 +86,6 @@ def main():
             else:
                 out.turnOff()
 
-        # root.label1['text'] = "{:^} MPa".format(test)
         root.update_idletasks()
         root.update()
         time.sleep(0.1)
