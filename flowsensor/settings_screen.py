@@ -14,6 +14,20 @@ class SettingScreen:
 
         self.settings = Setting()
 
+        self.FONT_NUMBER = (
+          "Helvetica",
+          22,
+          'bold'
+          )
+
+        self.SIZE_DATA = {
+                      'height': 5,
+                      'width': 10,
+                      'pady': 10
+        }
+
+        self.validation = windows.register(self.only_numbers)
+
         self.set_frame(windows)
         self.set_fonts()
         self.set_label()
@@ -32,6 +46,13 @@ class SettingScreen:
         self.entry7.insert(tk.END, settings[3].Max)
         self.entry8.insert(tk.END, settings[3].Min)
 
+    def only_numbers(self, char):
+        try:
+            float(char)
+            return True
+        except:
+            return False
+
     def set_fonts(self):
         self.fonts_title2 = {
             'master': self.frame,
@@ -47,13 +68,13 @@ class SettingScreen:
         self.fonts_title3 = {
             'master': self.frame,
             'fg': 'black',
-            'font': ("Helvetica", 12, 'bold'),
+            'font': ("Helvetica", 22, 'bold'),
             'width': 10,
             'height': 1
         }
         self.grid_title3 = {
             'padx': 1,
-            'pady': 4
+            'pady': 10
         }
         self.fonts_buttom1 = {
             'master': self.frame,
@@ -287,29 +308,85 @@ class SettingScreen:
                     )
 
     def set_entry(self):
-        self.entry1 = tk.Entry(self.frame)
-        self.entry1.grid(column=2, row=4)
+        self.entry1 = tk.Entry(
+                        self.frame,
+                        validate="key",
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry1.grid(column=2, row=4, pady=self.SIZE_DATA['pady'])
 
-        self.entry2 = tk.Entry(self.frame)
-        self.entry2.grid(column=2, row=5)
+        self.entry2 = tk.Entry(
+                        self.frame,
+                        validate='key',
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry2.grid(column=2, row=5, pady=self.SIZE_DATA['pady'])
 
-        self.entry3 = tk.Entry(self.frame)
-        self.entry3.grid(column=4, row=4)
+        self.entry3 = tk.Entry(
+                        self.frame,
+                        validate='key',
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry3.grid(column=4, row=4, pady=self.SIZE_DATA['pady'])
 
-        self.entry4 = tk.Entry(self.frame)
-        self.entry4.grid(column=4, row=5)
+        self.entry4 = tk.Entry(
+                        self.frame,
+                        validate='key',
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry4.grid(column=4, row=5, pady=self.SIZE_DATA['pady'])
 
-        self.entry5 = tk.Entry(self.frame)
-        self.entry5.grid(column=2, row=7)
+        self.entry5 = tk.Entry(
+                        self.frame,
+                        validate='key',
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry5.grid(column=2, row=7, pady=self.SIZE_DATA['pady'])
 
-        self.entry6 = tk.Entry(self.frame)
-        self.entry6.grid(column=2, row=8)
+        self.entry6 = tk.Entry(
+                        self.frame,
+                        validate='key',
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry6.grid(column=2, row=8, pady=self.SIZE_DATA['pady'])
 
-        self.entry7 = tk.Entry(self.frame)
-        self.entry7.grid(column=4, row=7)
+        self.entry7 = tk.Entry(
+                        self.frame,
+                        validate='key',
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry7.grid(column=4, row=7, pady=self.SIZE_DATA['pady'])
 
-        self.entry8 = tk.Entry(self.frame)
-        self.entry8.grid(column=4, row=8)
+        self.entry8 = tk.Entry(
+                        self.frame,
+                        validate='key',
+                        validatecommand=(self.validation, '%P'),
+                        justify='center',
+                        width=self.SIZE_DATA['width'],
+                        font=self.FONT_NUMBER
+                )
+        self.entry8.grid(column=4, row=8, pady=self.SIZE_DATA['pady'])
 
     def buttom_save(self):
         self.settings.settings[0].Max = self.entry1.get()

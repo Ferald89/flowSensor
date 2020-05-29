@@ -16,7 +16,7 @@ class MainApplication(tk.Tk):
 
         self.FONT_NUMBER = (
           "Helvetica",
-          32,
+          35,
           'bold'
           )
         self.COLORS = {

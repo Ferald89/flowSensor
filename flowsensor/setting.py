@@ -10,6 +10,7 @@ class Setting:
     def __init__(self):
         self.auth = "settings.csv"
         self.settings = []
+        self.read()
 
     def save(self):
         with open(self.auth, 'w') as file:
@@ -28,15 +29,19 @@ class Setting:
 
     def read(self):
         self.settings.clear()
-        with open(self.auth, 'r') as file:
-            reader = csv.reader(file)
-            for idx, row in enumerate(reader):
-                if idx == 0:
-                    continue
-                sensor = SensorSetting(idx, row[1], row[2])
-                self.settings.append(sensor)
-            self.save()
-            return self.settings
+        try:
+            with open(self.auth, 'r') as file:
+                reader = csv.reader(file)
+                for idx, row in enumerate(reader):
+                    if idx == 0:
+                        continue
+                    sensor = SensorSetting(idx, row[1], row[2])
+                    self.settings.append(sensor)
+                self.save()
+                return self.settings
+        except :
+            self.default_settings()
+            self.read()
 
     def default_settings(self):
         self.settings.clear()
