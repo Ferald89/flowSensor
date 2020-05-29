@@ -109,7 +109,7 @@ class MainApplication(tk.Tk):
                     width=self.SIZE_DATA['width']
                     )
         self.label2['text'] = "FP 1 \n 0.044 Mpa"
-        self.label2.grid(column=1, row=2)
+        self.label2.grid(column=2, row=1)
 
         self.label3 = tk.Label(
                     self.frame1,
@@ -124,7 +124,7 @@ class MainApplication(tk.Tk):
                     )
 
         self.label3['text'] = "FP 1 \n 0.044 Mpa"
-        self.label3.grid(column=2, row=1)
+        self.label3.grid(column=1, row=2)
 
         self.label4 = tk.Label(
                       self.frame1,
