@@ -58,23 +58,23 @@ class SettingScreen:
             'master': self.frame,
             'fg': 'black',
             'font': ("Helvetica", 12, 'bold'),
-            'width': 45,
+            'width': 43,
             'height': 2
         }
         self.grid_title2 = {
             'padx': 4,
-            'pady': 4
+            'pady': 1
         }
         self.fonts_title3 = {
             'master': self.frame,
             'fg': 'black',
-            'font': ("Helvetica", 22, 'bold'),
+            'font': ("Helvetica", 20, 'bold'),
             'width': 10,
             'height': 1
         }
         self.grid_title3 = {
             'padx': 1,
-            'pady': 10
+            'pady': 2
         }
         self.fonts_buttom1 = {
             'master': self.frame,
@@ -85,7 +85,7 @@ class SettingScreen:
         }
         self.grid_buttom1 = {
             'padx': 1,
-            'pady': 4
+            'pady': 1
         }
 
     def set_frame(self, windows):
@@ -412,7 +412,11 @@ class SettingScreen:
 
         self.save.grid(
                 column=1,
-                row=9
+                row=9,
+                columnspan=8,
+                rowspan=2,
+                sticky="nesw",
+                padx=1, pady=1
             )
 
     def show_frame(self):

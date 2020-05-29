@@ -16,7 +16,7 @@ class MainApplication(tk.Tk):
 
         self.FONT_NUMBER = (
           "Helvetica",
-          35,
+          48,
           'bold'
           )
         self.COLORS = {
@@ -28,8 +28,8 @@ class MainApplication(tk.Tk):
                   'RED': 'red'
         }
         self.SIZE_DATA = {
-                      'height': 5,
-                      'width': 17
+                      'height': 3,
+                      'width': 11
         }
 
         self.get_screen_frame()
@@ -42,7 +42,7 @@ class MainApplication(tk.Tk):
         """Get screen properties of the screen. """
 
         self.title("Pressure Sensors || DEICA Automatismos S.A. de C.V.")
-        self.geometry("800x480")
+        self.geometry("795x440")
         self.resizable(0, 0)
         self.popup_menu = tk.Menu(self.frame1, tearoff=0)
         self.popup_menu.add_command(
@@ -94,7 +94,7 @@ class MainApplication(tk.Tk):
                     height=self.SIZE_DATA['height'],
                     width=self.SIZE_DATA['width']
                     )
-        self.label1['text'] = "0.044 Mpa"
+        self.label1['text'] = "FP 1 \n 0.044 Mpa"
         self.label1.grid(column=1, row=1)
 
         self.label2 = tk.Label(
@@ -108,7 +108,7 @@ class MainApplication(tk.Tk):
                     height=self.SIZE_DATA['height'],
                     width=self.SIZE_DATA['width']
                     )
-        self.label2['text'] = "0.4444 Mpa"
+        self.label2['text'] = "FP 1 \n 0.044 Mpa"
         self.label2.grid(column=1, row=2)
 
         self.label3 = tk.Label(
@@ -123,7 +123,7 @@ class MainApplication(tk.Tk):
                     width=self.SIZE_DATA['width']
                     )
 
-        self.label3['text'] = "0.444 Mpa"
+        self.label3['text'] = "FP 1 \n 0.044 Mpa"
         self.label3.grid(column=2, row=1)
 
         self.label4 = tk.Label(
@@ -137,7 +137,7 @@ class MainApplication(tk.Tk):
                       height=self.SIZE_DATA['height'],
                       width=self.SIZE_DATA['width']
                       )
-        self.label4['text'] = "0.444 Mpa"
+        self.label4['text'] = "FP 1 \n 0.044 Mpa"
         self.label4.grid(column=2, row=2)
 
     def get_screen_frame(self):
