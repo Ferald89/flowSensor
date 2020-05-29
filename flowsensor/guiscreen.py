@@ -16,7 +16,7 @@ class MainApplication(tk.Tk):
 
         self.FONT_NUMBER = (
           "Helvetica",
-          48,
+          44,
           'bold'
           )
         self.COLORS = {
@@ -29,7 +29,7 @@ class MainApplication(tk.Tk):
         }
         self.SIZE_DATA = {
                       'height': 3,
-                      'width': 11
+                      'width': 12
         }
 
         self.get_screen_frame()
@@ -42,7 +42,7 @@ class MainApplication(tk.Tk):
         """Get screen properties of the screen. """
 
         self.title("Pressure Sensors || DEICA Automatismos S.A. de C.V.")
-        self.geometry("795x440")
+        self.geometry("795x410")
         self.resizable(0, 0)
         self.popup_menu = tk.Menu(self.frame1, tearoff=0)
         self.popup_menu.add_command(
@@ -53,10 +53,10 @@ class MainApplication(tk.Tk):
                                 label="Settings",
                                 command=self.menu_setting
                             )
-        self.popup_menu.add_command(
-                                label="About",
-                                command=self.hide_frames
-                            )
+        # self.popup_menu.add_command(
+        #                         label="About",
+        #                         command=self.hide_frames
+        #                     )
         self.config(menu=self.popup_menu)
         # self.bind("<Button-3>", self.do_popup)
 

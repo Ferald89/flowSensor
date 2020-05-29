@@ -59,7 +59,7 @@ class SettingScreen:
             'fg': 'black',
             'font': ("Helvetica", 12, 'bold'),
             'width': 43,
-            'height': 2
+            'height': 1
         }
         self.grid_title2 = {
             'padx': 4,
