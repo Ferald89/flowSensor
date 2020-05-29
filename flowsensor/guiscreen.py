@@ -57,7 +57,8 @@ class MainApplication(tk.Tk):
                                 label="About",
                                 command=self.hide_frames
                             )
-        self.bind("<Button-3>", self.do_popup)
+        self.config(menu=self.popup_menu)
+        # self.bind("<Button-3>", self.do_popup)
 
     def menu_setting(self):
         self.hide_frames()
