@@ -50,6 +50,7 @@ def main():
     outs.append(GpioOut(DOUT_S4))
 
     while True:
+        print("Entra al loop")
 
         # Update Setting
         settings = sett.update()
@@ -91,4 +92,5 @@ def main():
 
 if __name__ == "__main__":
     """Empieza a ejecutar la primera linea de codigo"""
+    print("inica Programaa")
     main()
