@@ -27,6 +27,22 @@ class Setting:
                         sensor.Min
                 ))
 
+    def update(self):
+        self.settings.clear()
+        try:
+            with open(self.auth, 'r') as file:
+                reader = csv.reader(file)
+                for idx, row in enumerate(reader):
+                    if idx == 0:
+                        continue
+                    sensor = SensorSetting(idx, row[1], row[2])
+                    self.settings.append(sensor)
+                return self.settings
+        except :
+            self.default_settings()
+            self.read()
+            return self.settings
+
     def read(self):
         self.settings.clear()
         try:
@@ -42,6 +58,7 @@ class Setting:
         except :
             self.default_settings()
             self.read()
+            return self.settings
 
     def default_settings(self):
         self.settings.clear()

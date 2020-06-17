@@ -52,7 +52,7 @@ def main():
     while True:
 
         # Update Setting
-        # settings = sett.read()
+        settings = sett.update()
 
         for sens in range(3):
             actions[sens].value_Max = float(settings[sens].Max)
