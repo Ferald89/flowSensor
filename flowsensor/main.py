@@ -72,7 +72,6 @@ def main():
         actions[1].value = sensorFlow2.pressure
         actions[2].value = sensorFlow3.pressure
         actions[3].value = sensorFlow4.pressure
-
         # Actions
         root.label1['fg'] = actions[0].judge()
         root.label2['fg'] = actions[1].judge()
