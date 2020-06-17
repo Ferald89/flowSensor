@@ -37,18 +37,15 @@ class SettingScreen:
 
     def set_entry_default(self):
         settings = self.settings.read()
-        try:
-            self.entry1.insert(tk.END, settings[0].Max)
-            self.entry2.insert(tk.END, settings[0].Min)
-            self.entry3.insert(tk.END, settings[1].Max)
-            self.entry4.insert(tk.END, settings[1].Min)
-            self.entry5.insert(tk.END, settings[2].Max)
-            self.entry6.insert(tk.END, settings[2].Min)
-            self.entry7.insert(tk.END, settings[3].Max)
-            self.entry8.insert(tk.END, settings[3].Min)
-        except :
-            self.settings.default_settings()
-            self.set_entry_default()
+        
+        self.entry1.insert(tk.END, settings[0].Max)
+        self.entry2.insert(tk.END, settings[0].Min)
+        self.entry3.insert(tk.END, settings[1].Max)
+        self.entry4.insert(tk.END, settings[1].Min)
+        self.entry5.insert(tk.END, settings[2].Max)
+        self.entry6.insert(tk.END, settings[2].Min)
+        self.entry7.insert(tk.END, settings[3].Max)
+        self.entry8.insert(tk.END, settings[3].Min)
 
     def only_numbers(self, char):
         try:
